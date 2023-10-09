@@ -1,10 +1,10 @@
 #include "main.h"
 
 
-void parsing(const char *command)
+void parsing(char *command)
 {
 	pid_t pid = fork();
-	char *arg[120];
+	char *arg[120], *actual_command = NULL;
 	int val, count = 0;
 
 	char *token = strtok((char *)command, " ");
@@ -23,9 +23,9 @@ void parsing(const char *command)
 	}
 	if (pid == 0)
 	{
-		
+		actual_command = location(command);
 		/*val = execvp(arg[0], arg);*/
-		val = execve(arg[0], arg, NULL);
+		val = execve(actual_command, arg, NULL);
 		if (val == -1)
 		{
 			hprint("Error executing command.\n");

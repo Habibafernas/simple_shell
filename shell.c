@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	char command[120], *actual_command = NULL;
+	char command[120];
 
 	while (1)
 	{
@@ -12,8 +12,7 @@ int main(void)
 		prompt();
 		
 		print_command(command, sizeof(command));
-		actual_command = location(command);
-		parsing(actual_command);
+		parsing(command);
 		
 	}
 	return (0);
