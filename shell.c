@@ -3,13 +3,18 @@
 
 int main(void)
 {
-	char command[120];
-	while(1)
-	{
+	char command[120], *actual_command = NULL;
 
+	while (1)
+	{
+		
+		
 		prompt();
+		
 		print_command(command, sizeof(command));
-		parsing(command);
+		actual_command = location(command);
+		parsing(actual_command);
+		
 	}
 	return (0);
 }

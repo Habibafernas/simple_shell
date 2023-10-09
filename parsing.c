@@ -4,31 +4,33 @@
 void parsing(const char *command)
 {
 	pid_t pid = fork();
+	char *arg[120];
+	int val, count = 0;
+
+	char *token = strtok((char *)command, " ");
+
+	while (token != NULL)
+	{
+		arg[count++] = token;
+		token = strtok(NULL, " ");
+	}
+	arg[count] = NULL;
 
 	if (pid == -1)
 	{
 		hprint("Error forking process.\n");
 		exit(EXIT_FAILURE);
 	}
-	else if (pid == 0)
+	if (pid == 0)
 	{
-		char *arg[120];
-		int count = 0;
-
-		char *token = strtok((char *)command, " ");
-
-		while (token != NULL)
-		{
-			arg[count++] = token;
-			token = strtok(NULL, " ");
-		}
-		arg[count] = NULL;
-
-		execvp(arg[0], arg);
 		
-		/*execvp(arg[0], arg);*/
-		hprint("Error executing command.\n");
-		exit(EXIT_FAILURE);
+		/*val = execvp(arg[0], arg);*/
+		val = execve(arg[0], arg, NULL);
+		if (val == -1)
+		{
+			hprint("Error executing command.\n");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{

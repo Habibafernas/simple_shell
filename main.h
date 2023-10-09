@@ -8,11 +8,13 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 
 void hprint(const char *m);
 void prompt(void);
 void print_command(char *command, size_t s);
 void parsing(const char *command);
+char *location(char *command);
 
 
 
