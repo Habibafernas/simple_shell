@@ -1,11 +1,15 @@
 #include "main.h"
+/**
+ * parsing - parsing the command
+ * @command: the format string
+ */
 
 
 void parsing(char *command)
 {
 	pid_t pid = fork();
 	char *arg[120], *actual_command = NULL;
-	int val, count = 0;
+	int val, count = 0,  _exit = 0;
 
 	char *token = strtok((char *)command, " ");
 

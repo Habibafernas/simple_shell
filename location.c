@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * location - determine the location
+ * @command: the command
+ * Return: Null
+ */
 
 char *location(char *command)
 {
@@ -9,7 +14,6 @@ char *location(char *command)
     path = getenv("PATH");
     if (path)
     {
-     
         copy = strdup(path);
         length = strlen(command);
         token = strtok(copy, ":");
@@ -23,16 +27,13 @@ char *location(char *command)
             strcat(file_path, "\0");
             if (stat(file_path, &buffer) == 0)
             {
-
                 free(copy);
-
                 return (file_path);
             }
             else
             {
                 free(file_path);
                 token = strtok(NULL, ":");
-
             } 
         }
         free(copy);
@@ -43,4 +44,4 @@ char *location(char *command)
         return (NULL);
     }
     return (NULL);
-}
+    }

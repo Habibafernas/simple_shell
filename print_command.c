@@ -1,4 +1,9 @@
 #include"main.h"
+/**
+ * print_command - prints the command
+ * @command: the command
+ * @s: the size
+ */
 
 void print_command(char *command, size_t s)
 {
