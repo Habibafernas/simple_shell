@@ -6,7 +6,7 @@
  * @_exit: exit
  */
 
-void _exit(char **arg, char *line, int _exit)
+int _exit(char **arg, char *line, int _exit)
 {
     int status = 0;
     
