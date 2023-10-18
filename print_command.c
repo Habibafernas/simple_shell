@@ -21,5 +21,6 @@ void print_command(char *command, size_t s)
 			exit(EXIT_FAILURE);
 		}
 	}
+	
 	command[strcspn(command, "\n")] = '\0';
 }
