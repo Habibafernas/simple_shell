@@ -35,10 +35,10 @@ void parsing(char *command)
 			hprint("Error executing command.\n");
 			exit(EXIT_FAILURE);
 		}
+		prompt ();
 	}
 	else
 	{
 		wait(NULL);
 	}
-	prompt ();
 }
