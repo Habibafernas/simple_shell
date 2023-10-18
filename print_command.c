@@ -11,7 +11,9 @@ void print_command(char *command, size_t s)
 	{
 		if (feof(stdin))
 		{
-			hprint(" ");
+			/**
+			 * hprint(" ");
+			 * */
 			exit(EXIT_SUCCESS);
 
 		}
