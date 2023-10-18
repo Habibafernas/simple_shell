@@ -13,13 +13,14 @@ void parsing(char *command)
 
 	char *token = strtok((char *)command, " ");
 
+
 	while (token != NULL)
 	{
 		arg[count++] = token;
 		token = strtok(NULL, " ");
 	}
 	arg[count] = NULL;
-
+	check(arg);
 	if (pid == -1)
 	{
 		hprint("Error forking process.\n");
@@ -30,12 +31,13 @@ void parsing(char *command)
 		actual_command = location(command);
 		/*val = execvp(arg[0], arg);*/
 		val = execve(actual_command, arg, NULL);
+
 		if (val == -1)
 		{
-			hprint("Error executing command.\n");
+			hprint("No such file or directory.\n");
 			exit(EXIT_FAILURE);
 		}
-		prompt ();
+		prompt();
 	}
 	else
 	{

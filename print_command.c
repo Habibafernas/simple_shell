@@ -11,18 +11,13 @@ void print_command(char *command, size_t s)
 	{
 		if (feof(stdin))
 		{
-			/**
-			 * hprint(" ");
-			 * */
 			exit(EXIT_SUCCESS);
-
 		}
 		else
 		{
-			hprint("ERROR");
+			hprint("Error while reading input.\n");
 			exit(EXIT_FAILURE);
 		}
 	}
-	
 	command[strcspn(command, "\n")] = '\0';
 }

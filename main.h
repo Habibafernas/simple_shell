@@ -15,6 +15,12 @@ void prompt(void);
 void print_command(char *command, size_t s);
 void parsing(char *command);
 char *location(char *command);
+void free_tokens(char **p);
+void free_last_input(void);
+int _atoi(const char *str);
+void my_exit(char **args);
+int check(char **args);
+int _strcmp(const char *s1, const char *s2);
 
 
 
