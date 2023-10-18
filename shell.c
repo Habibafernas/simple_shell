@@ -12,7 +12,6 @@ int main(void)
 	{	
 		print_command(command, sizeof(command));
 		parsing(command);
-		prompt();
 	}
 	return (0);
 }

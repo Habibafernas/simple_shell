@@ -40,4 +40,5 @@ void parsing(char *command)
 	{
 		wait(NULL);
 	}
+	prompt ();
 }
